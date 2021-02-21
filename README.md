@@ -71,7 +71,7 @@
 ``` brew install kafka```
 
 ## start
-``` zookeeper-server-start /usr/local/etc/kafka/zookeeper.properties ```
+``` zookeeper-server-start /usr/local/etc/kafka/zookeeper.properties ```<br />
 ``` kafka-server-start /usr/local/etc/kafka/server.properties ```
 - Change default data and log in both the properties file while running for the first time.
 
@@ -85,12 +85,12 @@
 ```kafka-topics --zookeeper localhost:2181 --topic first_topic --describe```
 
 ## delete topic
-```kafka-topics --zookeeper localhost:2181 --topic second_topic --delete```
+```kafka-topics --zookeeper localhost:2181 --topic second_topic --delete```<br />
 
 ```kafka-topics --zookeeper localhost:2181 -topic second_topic --create --partitions 3 --replication-factor 1```
 
 ## kafka console producer
-```kafka-console-producer -broker-list localhost:9092 --topic first_topic```
+```kafka-console-producer -broker-list localhost:9092 --topic first_topic```<br />
 ```kafka-console-producer -broker-list localhost:9092 --topic first_topic --producer-property acks=all```
 
 - if produce in a topic which doesnot exist kafka will create the topic for you. Initially it will warn 	"LEADER NOT AVAILABLE" then from second message onward it will recover and add LEADER. default partition 	 value = 1 and replication factor 1. You can set default partition value in server.properties
@@ -99,7 +99,7 @@
 ```kafka-console-consumer --bootstrap-server localhost:9092 --topic first_topic```
 - it will only read new messages.
 
-- to read old messages.
+- to read old messages.<br />
  ```kafka-console-consumer --bootstrap-server localhost:9092 --topic first_topic --from-beginning```
 
 ## kafka-console-consumer group
@@ -108,8 +108,8 @@
 - if you are consuming multiple groups in the same producer. The messages get split in  different instances as they are part of the same group
 
 ## kafka-consumer- groups
-```kafka-consumer-groups --bootstrap-server localhost:9092 --list```
-```kafka-consumer-groups --bootstrap-server localhost:9092 --describe -group my-first-application ```
+```kafka-consumer-groups --bootstrap-server localhost:9092 --list```<br />
+```kafka-consumer-groups --bootstrap-server localhost:9092 --describe -group my-first-application ```<br />
 ```kafka-consumer-groups --bootstrap-server localhost:9092 --group my-first-application --reset-offsets --to-earliest --execute --topic first-topic```
 
 [Kafka UI Client : Conduktor]
