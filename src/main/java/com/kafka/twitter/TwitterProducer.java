@@ -31,12 +31,15 @@ public class TwitterProducer {
     String token = "";
     String secret = "";
 
-    public TwitterProducer() {
+    public TwitterProducer() throws IOException {
+        Properties prop = readPropertiesFile("application.properties");
+        consumerKey = prop.getProperty("consumerKey");
+        consumerSecret = prop.getProperty("consumerSecret");
+        token = prop.getProperty("token");
+        secret = prop.getProperty("secret");
     }
 
     public static void main(String[] args) throws IOException {
-        Properties prop = readPropertiesFile("application.properties");
-//        System.out.println(prop.getProperty("username"));
         new TwitterProducer().run();
     }
 
@@ -111,18 +114,18 @@ public class TwitterProducer {
     }
 
     public static Properties readPropertiesFile(String fileName) throws IOException {
-        FileInputStream fis = null;
+        InputStream inputStream = null;
         Properties prop = null;
         try {
             prop = new Properties();
-            InputStream inputStream = TwitterProducer.class.getClassLoader().getResourceAsStream(fileName);
+            inputStream = TwitterProducer.class.getClassLoader().getResourceAsStream(fileName);
             prop.load(inputStream);
         } catch (FileNotFoundException fnfe) {
             fnfe.printStackTrace();
         } catch (IOException ioe) {
             ioe.printStackTrace();
         } finally {
-            fis.close();
+            inputStream.close();
         }
         return prop;
     }
