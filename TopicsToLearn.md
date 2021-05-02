@@ -1,0 +1,44 @@
+## Kafka Topics to Cover
+
+
+- Enter Kafka
+	- Messages and Batches
+	- Schemas
+	- Topics and Partitions
+	- Producers and Consumers
+	- Brokers and Clusters
+	- Multiple Clusters
+
+- Why Kafka?
+	- Multiple Producers
+	- Multiple Consumers
+	- Disk-Based Retention
+	- Scalable
+	- High Performance
+- Broker Configuration
+- Serializers
+	- Custom Serializers
+	- Serializing Using Apache Avro
+	- Using Avro Records with Kafka
+- Partitions
+- Commits and Offsets
+- Rebalance Listeners
+- File Format
+- Using Consumers in a Reliable System
+	- Important Consumer Configuration Properties for Reliable Processing
+	- Explicitly Committing Offsets in Consumers
+- Use Cases of Cross-Cluster Mirroring
+- Topic Operations
+	- Creating a New Topic
+	- Adding Partitions
+	- Deleting a Topic
+- Consumer Groups
+- What Is Stream Processing?
+- Stream-Processing Concepts
+	- Time
+	- State
+	- Stream-Table Duality
+	- Time Windows
+- Kafka Streams by Example
+	- Word Count
+	- Stock Market Statistics
